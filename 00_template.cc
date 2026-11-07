@@ -26,12 +26,24 @@ template <typename T, typename... U> void dbg(const T &x, const U &...y) {
   dbg(y...);
 }
 
+int read64() {
+  char s[50];
+  scanf("%49s", s);
+  int x = 0;
+  int sign = 1, i = 0;
+  if (s[0] == '-') {
+    sign = -1;
+    i = 1;
+  }
+  for (; s[i]; ++i)
+    x = x * 10 + s[i] - '0';
+  return x * sign;
+}
 void test_case() {}
 __DEBUG_AND_TEST_CASE__() {
   cin.tie(0)->sync_with_stdio(false);
   cout.tie(NULL);
-  int tt;
-  scanf("%" SCNd64, &tt);
+  int tt = read64();
   while (tt-- > 0) {
     test_case();
   }
